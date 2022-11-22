@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/splineBillMi"
+        android:icon="@drawable/ic_split"
+        android:title="Split bill"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/addBillMi"
         android:icon="@drawable/ic_add"
         android:title="Add bill"
