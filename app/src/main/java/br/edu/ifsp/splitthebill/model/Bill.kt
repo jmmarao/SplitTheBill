@@ -7,6 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class Bill(
     val id: Int,
     var name: String,
-    var amount: Double,
-    var numberOfPeople: Int
+    var product: String,
+    var amount: Double
 ) : Parcelable

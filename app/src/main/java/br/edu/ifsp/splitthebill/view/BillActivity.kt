@@ -26,8 +26,8 @@ class BillActivity : AppCompatActivity() {
             with(activityBillBinding) {
                 with(_receivedBill) {
                     nameEditText.setText(name)
+                    productEditText.setText(product)
                     amountEditText.setText(amount.toString())
-                    numberOfPeopleEditText.setText(numberOfPeople.toString())
                 }
             }
         }
@@ -35,8 +35,8 @@ class BillActivity : AppCompatActivity() {
         val viewBill = intent.getBooleanExtra(VIEW_BILL, false)
         if (viewBill) {
             activityBillBinding.nameEditText.isEnabled = false
+            activityBillBinding.productEditText.isEnabled = false
             activityBillBinding.amountEditText.isEnabled = false
-            activityBillBinding.numberOfPeopleEditText.isEnabled = false
             activityBillBinding.saveButton.visibility = View.GONE
         }
 
@@ -44,8 +44,8 @@ class BillActivity : AppCompatActivity() {
             val bill = Bill(
                 id = receivedBill?.id ?: Random(System.currentTimeMillis()).nextInt(),
                 name = activityBillBinding.nameEditText.text.toString(),
-                amount = activityBillBinding.amountEditText.text.toString().toDouble(),
-                numberOfPeople = activityBillBinding.numberOfPeopleEditText.text.toString().toInt()
+                product = activityBillBinding.productEditText.text.toString(),
+                amount = activityBillBinding.amountEditText.text.toString().toDouble()
             )
 
             val resultIntent = Intent()
