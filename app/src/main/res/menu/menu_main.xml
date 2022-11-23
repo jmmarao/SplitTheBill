@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/splineBillMi"
+        android:id="@+id/splitBillMi"
         android:icon="@drawable/ic_split"
         android:title="Split bill"
         app:showAsAction="ifRoom" />
