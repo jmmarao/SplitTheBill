@@ -16,6 +16,7 @@ import br.edu.ifsp.splitthebill.adapter.BillAdapter
 import br.edu.ifsp.splitthebill.databinding.ActivityMainBinding
 import br.edu.ifsp.splitthebill.model.Bill
 import br.edu.ifsp.splitthebill.model.Constant.EXTRA_BILL
+import br.edu.ifsp.splitthebill.model.Constant.EXTRA_SPLIT_BILL
 import br.edu.ifsp.splitthebill.model.Constant.VIEW_BILL
 
 class MainActivity : AppCompatActivity() {
@@ -75,6 +76,14 @@ class MainActivity : AppCompatActivity() {
                 billActivityResultLauncher.launch(Intent(this, BillActivity::class.java))
                 true
             }
+            R.id.splitBillMi -> {
+                val splitBillIntent = Intent(this, SplitBillActivity::class.java)
+                val splitBillList = ArrayList<Bill>()
+                splitBillList.addAll(billList)
+                splitBillIntent.putParcelableArrayListExtra(EXTRA_SPLIT_BILL, splitBillList)
+                startActivity(splitBillIntent)
+                true
+            }
             else -> {
                 false
             }
@@ -92,17 +101,17 @@ class MainActivity : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         val position = (item.menuInfo as AdapterContextMenuInfo).position
         return when (item.itemId) {
-            R.id.removeBillMi -> {
-                billList.removeAt(position)
-                billAdapter.notifyDataSetChanged()
-                true
-            }
             R.id.editBillMi -> {
                 val bill = billList[position]
                 val billIntent = Intent(this, BillActivity::class.java)
                 billIntent.putExtra(EXTRA_BILL, bill)
                 billIntent.putExtra(VIEW_BILL, false)
                 billActivityResultLauncher.launch(billIntent)
+                true
+            }
+            R.id.removeBillMi -> {
+                billList.removeAt(position)
+                billAdapter.notifyDataSetChanged()
                 true
             }
             else -> {

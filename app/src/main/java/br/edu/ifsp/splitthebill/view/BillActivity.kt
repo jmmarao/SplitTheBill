@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import br.edu.ifsp.splitthebill.R
 import br.edu.ifsp.splitthebill.databinding.ActivityBillBinding
 import br.edu.ifsp.splitthebill.model.Bill
 import br.edu.ifsp.splitthebill.model.Constant.EXTRA_BILL
